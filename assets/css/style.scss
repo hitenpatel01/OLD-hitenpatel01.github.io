@@ -11,6 +11,9 @@ header h1:before {
   content: '>';
   padding: 0 13px;
 }
+header {
+  margin: 0;
+}
 #main_content {
   background: rgba(0,0,0,0.85);
   padding: 25px;
