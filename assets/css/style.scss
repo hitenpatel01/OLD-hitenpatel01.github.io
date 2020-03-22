@@ -2,6 +2,11 @@
 ---
 
 @import "{{ site.theme }}";
+body {
+  background-image: url(assets/images/background.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+}
 header h1:before {
   content: '>';
   padding: 0 13px;
