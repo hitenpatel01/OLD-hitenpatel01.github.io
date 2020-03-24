@@ -20,6 +20,7 @@ header h2 {
 #main_content {
   background: rgba(0,0,0,0.85);
   padding: 25px;
+  width: calc(100% - 50px);
 }
 a {
   text-decoration: none;
