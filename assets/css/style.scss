@@ -4,7 +4,7 @@
 @import "{{ site.theme }}";
 body {
   background-image: url(../images/matrix.jpg);
-  background-size: cover;
+  background-size: contain;
   background-attachment: fixed;
 }
 header h1:before {
