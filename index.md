@@ -4,8 +4,8 @@
     <li>
       <a href="{{ post.url }}">{{ post.title }}</a>
       
-      {% if page.tags %}
-        <small>tags: <em>{{ page.tags | join: "</em> - <em>" }}</em></small>
+      {% if post.tags %}
+        <small>tags: <em>{{ post.tags | join: "</em> - <em>" }}</em></small>
       {% endif %}
             
       {{ post.excerpt }}
