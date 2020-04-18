@@ -3,7 +3,7 @@ title: "Performance comparison between Asynchronous & Synchronous Request Proces
 date: 2016-05-14 11:29:00 -0400
 tags: [asynchronous, aync, await, asp.net, mvc, webapi, api]
 ---
-Performance is a key feature of modern web applications and non-blocking I/O characteristic of asynchronous request processing is known to benefit scalability and response time of web applications. In this article, we'll compare performance of asynchronous request processing with synchronous request processing for understanding its benefits to built high performance ASP.NET MVC applications.
+Non-blocking I/O characteristic of asynchronous programming in recommended pattern to scale performance of applications. In this article, we'll compare execution of asynchronous with synchronous request processing in an ASP.NET MVC application to understand its benefits.
 
 ## Synchronous vs Asynchronous Request Processing
 In synchronous request processing, a thread is assigned to a request and is responsible for its complete execution. Such threads are blocked (does nothing until response is received) whenever I/O is performed. Also the threads are assigned from Thread Pool and are limited in number, hence only a certain number of requests can execute and remaining requests are queued until threads free up. Below is typical implementation of synchronous request processing in ASP.NET MVC:
