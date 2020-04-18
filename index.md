@@ -11,7 +11,7 @@
             <em>{{ post.tags | join: ", " }}</em>
           </div>
           <div>
-            {{ post.date | date: "%D %r" }}
+            {{ post.date | date: "%a, %b %d %Y %I:%m %P" }}
           </div>
         </small>
       {% endif %}
