@@ -10,7 +10,8 @@ In synchronous request processing, a thread is assigned to a request and is resp
 ```csharp
 public IActionResult Index()
 {
-  var data = ExternalService.GetData(); //Thread will block until GetData() returns data
+  //Thread will block until GetData() executes
+  var data = ExternalService.GetData(); 
   return View(data);
 }
 ```
@@ -18,8 +19,10 @@ Asynchronous request processing on other hand relieves threads that are processi
 ```csharp
 public async Task<IActionResult> IndexAsync()
 {
-    var data = await ExternalService.GetData();  //Method returns immediately after invoking GetData() 
-    return View(data);
+  //Thread will be returned to pool & execution will
+  //resume once data arrived from external service
+  var data = await ExternalService.GetData();
+  return View(data);
 }
 ```
 ## Configuration
