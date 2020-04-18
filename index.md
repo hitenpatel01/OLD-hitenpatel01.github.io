@@ -1,6 +1,6 @@
 <div style="display: flex">
   <div style="flex: 1 1 70%">
-    <h2>Recent Posts</h2>
+    <h2>./Recent Posts</h2>
     <ul>
       {% for post in site.posts %}
         <li>
@@ -14,7 +14,7 @@
     </ul>
   </div>
   <div style="flex: 1 1 30%">
-    <h2>Projects</h2>
+    <h2>./Projects</h2>
     <ul>
       <li><a href="#">My Money Manager</a></li>
       <li><a href="#">SPA</a></li>
