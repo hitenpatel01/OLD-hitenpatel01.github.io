@@ -9,7 +9,6 @@
       {% endif %}
             
       {{ post.excerpt }}
-      
     </li>
   {% endfor %}
 </ul>
