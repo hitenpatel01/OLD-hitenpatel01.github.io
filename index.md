@@ -1,6 +1,4 @@
-# Header1
-## Header 2
-### Posts
+# Posts
 <ul>
   {% for post in site.posts %}
     <li>
