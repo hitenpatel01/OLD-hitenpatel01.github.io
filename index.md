@@ -17,7 +17,8 @@
     <h2>./Projects</h2>
     <ul>
       <li><a href="#">My Money Manager</a></li>
-      <li><a href="#">SPA</a></li>
+      <li><a href="#">Game - Angular PWA</a></li>
+      <li><a href="#">DI Interception</a></li>
     </ul>
   </div>
 </div>
