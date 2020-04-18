@@ -1,7 +1,7 @@
 ---
 title: "Performance comparison between Asynchronous & Synchronous Request Processing in ASP.NET"
 date: 2016-05-14 11:29:00 -0400
-tags: ASP.NET ASYNC
+tags: [asynchronous, aync, await, asp.net, mvc, webapi, api]
 ---
 Performance is a key feature of modern web applications and non-blocking I/O characteristic of asynchronous request processing is known to benefit scalability and response time of web applications. In this article, we'll compare performance of asynchronous request processing with synchronous request processing for understanding its benefits to built high performance ASP.NET MVC applications.
 
