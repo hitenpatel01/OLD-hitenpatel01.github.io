@@ -4,9 +4,9 @@
     <li>
       <a href="{{ post.url }}">{{ post.title }}</a>
         <small style="display: block; text-transform: lowercase">
-          {{ post.date | date: "%d %Y" }}
+          {{ post.date | date: "%B %Y" }}
           {% if post.tags %}    
-            <span>: </span>
+            <span>-</span>
             <em>{{ post.tags | join: "</em>, <em>" }}</em>
           {% endif %}
         </small>            
