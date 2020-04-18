@@ -1,5 +1,5 @@
 <div style="display: flex">
-  <div style="flex: 1 1 75%">
+  <div style="flex: 1 1 60%">
     ## Recent Posts
     <ul>
       {% for post in site.posts %}
@@ -13,7 +13,7 @@
       {% endfor %}
     </ul>
   </div>
-  <div style="flex: 1 1 25%">
+  <div style="flex: 1 1 40%">
     ## Projects
     <ul>
       <li><a href="#">My Money Manager</a></li>
