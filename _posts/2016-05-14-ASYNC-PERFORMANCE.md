@@ -13,19 +13,19 @@ public IActionResult Index()
   var data = ExternalService.GetData(); //Thread will block until GetData() returns data
   return View(data);
 }
-```
+```csharp
 Asynchronous request processing on other hand relieves threads that are processing requests when I/O is performed and hence they are available to process other requests. Processing of the request is resumed by any available thread (from Thread Pool) once response from I/O is received. The request takes about the same time to complete but more requests can be executed due to availability of threads. Typical implementation of Asynchronous request processing is as below:
-```
+```csharp
 public async Task<IActionResult> IndexAsync()
 {
     var data = await ExternalService.GetData();  //Method returns immediately after invoking GetData() 
     return View(data);
 }
 ```
-##Configuration
+## Configuration
 3 servers are configured to run (i) a load tester, (ii) an ASP.NET MVC application having synchronous and asynchronous versions of a method that requests data from back-end service and returns it (iii) a Node.JS backend service that responds after specified delay. Concurrent requests ranging 10-100 are invoked from load tester for synchronous method of the ASP.NET MVC application followed by asynchronous method invocations. Test is repeated by configuring Node.JS application to delay response by 0 ms, 100ms, 250ms & 500ms. Throughput, response time and server resources are measured and compared.
 
-##Throughput
+## Throughput
 Throughput denotes amount of work done in a unit time; typically represented as requests per second (request/sec). Figure 1 shows throughput of synchronous and asynchronous requests for various I/O duration. Throughput decreases as the duration increases for both types of request processing patterns but asynchronous requests yields higher throughput. It performed 1.4x, 4.0x, 5.8x & 6.5x more throughput than synchronous requests for I/O responding in 0 ms, 100 ms, 250 ms and 500 ms respectively.
 
 ![throughput-latency](/content/images/2017/01/throughput-latency.png)
