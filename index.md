@@ -16,7 +16,7 @@
         </small>
       {% endif %}
             
-      {{ post.excerpt }}
+      <div style="margin-right: 25px; text-align: justify">{{ post.excerpt }}</div>
     </li>
   {% endfor %}
 </ul>
