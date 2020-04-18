@@ -5,7 +5,15 @@
       <a href="{{ post.url }}">{{ post.title }}</a>
       
       {% if post.tags %}
-        <small>tags: <em>{{ post.tags | join: "</em> - <em>" }}</em></small>
+        <small style="display: block">
+          <div style="text-transform: lowercase">
+            <!-- tags: <em>{{ post.tags | join: "</em>, <em>" }}</em> -->
+            {{ post.tags | join: ", " }}</em>
+          </div>
+          <div>
+            {{ page.date | date: "%-d %B %Y %h:%M %A" }}
+          </div>
+        </small>
       {% endif %}
             
       {{ post.excerpt }}
