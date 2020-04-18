@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: "Performance comparison between Asynchronous & Synchronous Request Processing"
 date: 2016-05-14 11:29:00 -0400
 categories: ASP.NET ASYNC
