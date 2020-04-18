@@ -10,7 +10,7 @@
             <em style="text-transform: lowercase">{{ post.tags | join: "</em>, <em>" }}</em>
           {% endif %}
         </small>            
-      <div style="margin-right: 25px; text-align: justify">{{ post.excerpt }}</div>
+      <div style="margin-right: 25px">{{ post.excerpt }}</div>
     </li>
   {% endfor %}
 </ul>
