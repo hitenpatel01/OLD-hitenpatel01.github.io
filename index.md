@@ -8,10 +8,10 @@
         <small style="display: block">
           <div style="text-transform: lowercase">
             <!-- tags: <em>{{ post.tags | join: "</em>, <em>" }}</em> -->
-            {{ post.tags | join: ", " }}</em>
+            <em>{{ post.tags | join: ", " }}</em>
           </div>
           <div>
-            {{ page.date | date: "%-d %B %Y %h:%M %A" }}
+            {{ post.date | date: "%-d %B %Y %h:%M %A" }}
           </div>
         </small>
       {% endif %}
