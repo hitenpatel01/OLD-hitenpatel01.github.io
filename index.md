@@ -7,7 +7,9 @@
           {{ post.date | date: "%B %Y" }}
           {% if post.tags %}    
             <span>-</span>
-            <em style="text-transform: lowercase">{{ post.tags | join: "</em>, <em>" }}</em>
+            <span style=style="text-transform: lowercase">
+              <em>{{ post.tags | join: "</em>, <em>" }}</em>
+            </span>
           {% endif %}
         </small>            
       <div style="margin-right: 25px">{{ post.excerpt }}</div>
