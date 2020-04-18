@@ -6,7 +6,7 @@
       <small style="display: block">
         {{ post.tags | join: ", " }}
       </small>
-      <div style="margin-right: 25px; text-align: justify">{{ post.excerpt }}</div>
+      <div style="margin-right: 50px; text-align: justify">{{ post.excerpt }}</div>
     </li>
   {% endfor %}
 </ul>
