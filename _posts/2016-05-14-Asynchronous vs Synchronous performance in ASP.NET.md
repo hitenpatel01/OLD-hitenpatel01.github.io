@@ -69,7 +69,7 @@ Though average response time is used as a metric above, best practice for measur
 ##Resource Consumption
 CPU utilization and memory consumption are among the major system resources and hence are measured to determine efficiency of the request processing patterns. As shown in figure 7, cumulative CPU utilization of asynchronous requests is higher than synchronous request processing due more requests are being processed. This in fact is better utilization of server resources since CPU is being consumed instead of being idle.
 
-![cpu](/content/images/cpu.png)
+![cpu](/assets/images/cpu.png)
 
 ##### Figure 7
 
