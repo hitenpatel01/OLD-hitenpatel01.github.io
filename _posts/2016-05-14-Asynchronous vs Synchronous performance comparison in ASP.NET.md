@@ -3,7 +3,7 @@ title: "Asynchronous vs Synchronous performance comparison in ASP.NET"
 date: 2016-05-14 11:29:00 -0400
 tags: [asynchronous, aync, await, asp.net, mvc, webapi, api]
 ---
-Asynchronous programming is recommended pattern to scale performance of applications due to its non-blocking I/O characteristic ([read more](https://docs.microsoft.com/en-us/dotnet/standard/async-in-depth#deeper-dive-into-tasks-for-an-io-bound-operation){:target="_blank"}). In this article, we'll compare performance of asynchronous vs synchronous request processing in an ASP.NET MVC application.
+Asynchronous programming is recommended pattern to scale performance of applications due to its non-blocking I/O characteristic ([read more](https://docs.microsoft.com/en-us/dotnet/standard/async-in-depth#deeper-dive-into-tasks-for-an-io-bound-operation){:target="_blank"}). In this article, we'll compare performance of asynchronous vs synchronous request processing in an ASP.NET MVC application to quantify its performance improvement.
 
 ## Synchronous vs Asynchronous Request Processing
 In synchronous request processing, a thread is assigned to a request and is responsible for its complete execution. Such threads are blocked (does nothing until response is received) whenever I/O is performed. Also the threads are assigned from Thread Pool and are limited in number, hence only a certain number of requests can execute and remaining requests are queued until threads free up. Below is typical implementation of synchronous request processing in ASP.NET MVC:
@@ -25,17 +25,16 @@ public async Task<IActionResult> IndexAsync()
   return View(data);
 }
 ```
-## Configuration
-3 servers are configured to run (i) a load tester, (ii) an ASP.NET MVC application having synchronous and asynchronous versions of a method that requests data from back-end service and returns it (iii) a Node.JS backend service that responds after specified delay. Concurrent requests ranging 10-100 are invoked from load tester for synchronous method of the ASP.NET MVC application followed by asynchronous method invocations. Test is repeated by configuring Node.JS application to delay response by 0 ms, 100ms, 250ms & 500ms. Throughput, response time and server resources are measured and compared.
+## Setup
+3 servers are configured to run (i) a load tester, (ii) an ASP.NET MVC application having asynchronous and synchronousversions of a method that requests data from back-end service (iii) a Node.JS backend service that responds after specified delay. Concurrent requests ranging 10 to 100 are invoked from load tester for synchronous method of the ASP.NET MVC application followed by asynchronous method invocations. Test is repeated by changing delay in Node.JS application to 0 ms, 100ms, 250ms & 500ms. Throughput, response time and server resources utilized by ASP.NET application are measured using performance counters.
 
 ## Throughput
-Throughput denotes amount of work done in a unit time; typically represented as requests per second (request/sec). Figure 1 shows throughput of synchronous and asynchronous requests for various I/O duration. Throughput decreases as the duration increases for both types of request processing patterns but asynchronous requests yields higher throughput. It performed 1.4x, 4.0x, 5.8x & 6.5x more throughput than synchronous requests for I/O responding in 0 ms, 100 ms, 250 ms and 500 ms respectively.
+First performance metric we'll look at is throughput for different latencies of backend service. Throughput naturally decreases as latency increases but asynchronous requests delivers 1.4x, 4.0x, 5.8x & 6.5x more throughput than synchronous requests.
 
 ![throughput-latency](/assets/images/throughput-latency.png)
+##### Figure 1: Throughput v/s latency
 
-##### Figure 1
-
-Another scenario is measuring throughput for different number of concurrent requests. Figure 2 shows throughput for various levels of concurrency for fixed I/O duration of 100ms. Throughput for synchronous requests is almost the same for any level of concurrency but throughput for asynchronous requests increases linearly with maximum throughput at concurrency of 80. Server is fully saturated at this level hence increasing concurrency further starts dropping the throughput.
+Another scenario is measuring throughput for various levels of concurrency. In this case we'll use fixed latency of 100ms for the backend service so that it does not affect performance and make 10 through 100 concurrent requests. Throughput for synchronous requests is almost the same for any level of concurrency but it increases linearly for asynchronous requests with maximum throughput at concurrency of 80. Server is fully saturated at this level (max performance) and hence increasing concurrency further starts dropping the throughput.
 
 ![throughput-concurrency](/assets/images/throughput-concurrency.png)
 
