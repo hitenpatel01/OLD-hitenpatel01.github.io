@@ -3,10 +3,14 @@ title: "Asynchronous vs Synchronous performance comparison in ASP.NET"
 date: 2016-05-14 11:29:00 -0400
 tags: [asynchronous, aync, await, asp.net, mvc, webapi, api]
 ---
-Asynchronous programming is recommended pattern to scale performance of applications due to its non-blocking I/O characteristic ([read more](https://docs.microsoft.com/en-us/dotnet/standard/async-in-depth#deeper-dive-into-tasks-for-an-io-bound-operation){:target="_blank"}). In this article, we'll compare performance of asynchronous vs synchronous request processing in an ASP.NET MVC application to quantify its performance improvement.
+Asynchronous programming is a recommended pattern to scale performance of applications due to its non-blocking I/O characteristic ([read more](https://docs.microsoft.com/en-us/dotnet/standard/async-in-depth#deeper-dive-into-tasks-for-an-io-bound-operation){:target="_blank"}). In this article, we'll compare performance of asynchronous vs synchronous request processing in an ASP.NET MVC application to quantify performance gain from asynchronous request processing.
 
 ## Setup
-3 servers are configured to run (i) a load tester, (ii) an ASP.NET MVC application having asynchronous and synchronousversions of a method that requests data from back-end service (iii) a Node.JS backend service that responds after specified delay. Concurrent requests ranging 10 to 100 are invoked from load tester for synchronous method of the ASP.NET MVC application followed by asynchronous method invocations. Test is repeated by changing delay in Node.JS application to 0 ms, 100ms, 250ms & 500ms. Throughput, response time and server resources utilized by ASP.NET application are measured using performance counters.
+- Load Tester - multi threaded application like Apache Bench that can run concurrent requests
+- ASP.NET MVC application having asynchronous and synchronousversions of a method requesting data from a back-end service
+- Node.JS backend service that responds HTTP 200 OK after specified delay.
+
+Concurrent requests ranging 10 to 100 requests are invoked from load tester for synchronous method of the ASP.NET MVC application followed by asynchronous method invocations. Test is repeated by changing delay in Node.JS application to 0 ms, 100ms, 250ms & 500ms. Throughput, response time and server resources utilized by ASP.NET application are measured using performance counters.
 
 ## Throughput
 First performance metric we'll look at is throughput for different latencies of backend service. Throughput naturally decreases as latency increases but asynchronous requests delivers 1.4x, 4.0x, 5.8x & 6.5x more throughput than synchronous requests.
