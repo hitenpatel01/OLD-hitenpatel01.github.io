@@ -6,7 +6,7 @@ tags: [asynchronous, aync, await, asp.net, mvc, webapi, api]
 Asynchronous programming is a recommended pattern to scale performance of applications due to its non-blocking I/O characteristic ([read more](https://docs.microsoft.com/en-us/dotnet/standard/async-in-depth#deeper-dive-into-tasks-for-an-io-bound-operation){:target="_blank"}). In this article, we'll compare performance of asynchronous vs synchronous request processing in an ASP.NET MVC application to quantify performance gain from asynchronous request processing.
 
 ## Setup
-1. Load Tester - multi threaded application like Apache Bench that can run concurrent requests
+1. Load Tester - multi threaded application like Apache Bench that can invoke concurrent requests
 2. ASP.NET MVC application having asynchronous and synchronousversions of a method requesting data from a back-end service
 3. Node.JS backend service that responds HTTP 200 OK after specified delay.
 
