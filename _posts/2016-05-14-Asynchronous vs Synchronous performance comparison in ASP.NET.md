@@ -10,23 +10,31 @@ Asynchronous programming is a recommended pattern to scale performance of applic
 2. ASP.NET MVC application having asynchronous and synchronousversions of a method requesting data from a back-end service
 3. Node.JS backend service that responds HTTP 200 OK after specified delay.
 
-Concurrent requests ranging 10 to 100 requests are invoked from load tester for synchronous method of the ASP.NET MVC application followed by asynchronous method invocations. Test is repeated by changing delay in Node.JS application to 0 ms, 100ms, 250ms & 500ms. Throughput, response time and server resources utilized by ASP.NET application are measured using performance counters.
+Latency in NodeJs application is set to 100ms and concurrent requests ranging 10 to 100 requests are invoked from load tester for synchronous method of the ASP.NET MVC application followed by asynchronous method invocations. Throughput, response time and server resources utilized by ASP.NET application are measured using performance counters.
 
 ## Throughput
+First performance metric we'll look at is throughput (amount of requests processed in a unit of time). Throughput for synchronous requests is nearly same for any level of concurrency whereas it increases linearly until server reaches max performance and then starts to decrease for asynchronous requests.
+
+![throughput](/assets/images/throughput.png)
+##### Figure 1: Throughput
+
+Throughput for asynchronous requests is significantly higher than synchronous requests contributed by non-blocking threads. This can be confirmed by observing number of queued requests. .Net Thread Pool determines optimal number of threads for running an application which are limited. Because of this only some synchronous requests can execute and remaining are queued. The same limited number of threads and utilized in non-blocking way for asynchronous requests due to which there are almost no queued requests.
+
+![executing-requests](/assets/images/queued-requests.png)
+##### Figure 2: Queued Requests
+
+
 First performance metric we'll look at is throughput for different latencies of backend service. Throughput naturally decreases as latency increases but asynchronous requests delivers 1.4x, 4.0x, 5.8x & 6.5x more throughput than synchronous requests.
 
 ![throughput-latency](/assets/images/throughput-latency.png)
-##### Figure 1: Throughput v/s latency
+##### Figure 3: Throughput v/s latency
 
 Another scenario is measuring throughput for various levels of concurrency. In this case we'll use fixed latency of 100ms for the backend service so that it does not affect performance and make 10 through 100 concurrent requests. Throughput for synchronous requests is almost the same for any level of concurrency whereas it increases linearly for asynchronous requests with maximum throughput at concurrency of 80. Server is fully saturated at this level (max performance) after which throughput starts decreasing, though its significantly higher than synchronous requests.
 
-![throughput-concurrency](/assets/images/throughput-concurrency.png)
-##### Figure 2: Throughput v/s Concurrency
 
 This throughput behavior correlates with hyper threaded quad-core processor of the server running ASP.Net application which can perform 8 tasks in parallel (4 cores x 2 hyper threading). In case of synchronous requests only 8-9 requests execute concurrently since threads are blocked and remaining requests are queued (as shown in white bar). Threads are not blocked for asynchronous requests hence all requests execute with queue almost empty.
 
-![executing-requests](/assets/images/executing-requests.png)
-##### Figure 3 Executing vs Queued Requests
+
 
 ## Response Time
 Response time is the time taken to process a request; usually denoted in milli-sec (ms). Figure 4 shows response time taken by synchronous and asynchronous requests for various I/O duration. Average response time of synchronous request processing deteriorates as I/O takes longer due to requests waiting to be processed; whereas asynchronous request processing shows improved average response time. As seen in the figure overhead to process asynchronous requests is 173.7 ms for I/O latency of 0 ms, which reduces to 104.6 ms (204.4 - 100), 64.1 ms (314.1 - 250) and 42.7 ms (542.7 - 500) as I/O latency increases.
