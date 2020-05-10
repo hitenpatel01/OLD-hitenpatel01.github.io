@@ -23,11 +23,13 @@ Throughput for asynchronous requests is significantly higher than synchronous re
 ![executing-requests](/assets/images/Queued-Requests.png)
 ##### Figure 2: Queued Requests
 
+
 ## Response Time
 Another metric is Response time (time taken to process request) which naturally increases proportional to concurrent requests for both types of requests but asynchronous requests exhibits way better performance since the requests didn't had to wait for threads to be available for processing.
 
 ![response-time](/assets/images/Response-Time.png)
 ##### Figure 3: Response Time
+
 
 ##Resource Consumption
 CPU utilization and memory consumption are among the major system resources and hence are measured to determine efficiency of the request processing patterns. As shown in figure 7, cumulative CPU utilization of asynchronous requests is higher than synchronous request processing due more requests are being processed. This in fact is better utilization of server resources since CPU is being consumed instead of being idle.
