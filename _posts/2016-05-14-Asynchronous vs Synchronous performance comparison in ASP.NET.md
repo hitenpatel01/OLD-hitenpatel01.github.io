@@ -15,12 +15,12 @@ Latency in NodeJs application is set to 100ms and concurrent requests ranging 10
 ## Throughput
 First performance metric we'll look at is throughput (amount of requests processed in a unit of time). Throughput for synchronous requests is nearly same for any level of concurrency whereas it increases linearly until server reaches max performance and then starts to decrease for asynchronous requests.
 
-![throughput](/assets/images/throughput.png)
+![throughput](/assets/images/Throughput.png)
 ##### Figure 1: Throughput
 
 Throughput for asynchronous requests is significantly higher than synchronous requests contributed by non-blocking threads. This can be confirmed by observing number of queued requests. .Net Thread Pool determines optimal number of threads for running an application which are limited. Because of this only some synchronous requests can execute and remaining are queued. The same limited number of threads and utilized in non-blocking way for asynchronous requests due to which there are almost no queued requests.
 
-![executing-requests](/assets/images/queued-requests.png)
+![executing-requests](/assets/images/Queued-Requests.png)
 ##### Figure 2: Queued Requests
 
 
