@@ -6,13 +6,13 @@ body {
   background-image: url(../images/matrix.jpg);
   background-size: contain;
   background-attachment: fixed;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 /*header {
   margin: 0;
   padding: 0;
-}
+}*/
 header h1 {
   margin: 0 0 0 -16px;
 }
@@ -24,7 +24,7 @@ header h2 {
     margin: 0;
     padding: 0;
 }
-#main_content {
+/*#main_content {
   background: rgba(0,0,0,0.85);
   padding: 45px;
   width: calc(100% - 90px);
