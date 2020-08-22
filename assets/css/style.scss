@@ -2,7 +2,7 @@
 ---
 
 @import "{{ site.theme }}";
-/*body {
+body {
   background-image: url(../images/matrix.jpg);
   background-size: contain;
   background-attachment: fixed;
@@ -22,11 +22,11 @@ header h2 {
     margin: 0;
     padding: 0;
 }
-#main_content {
+/*#main_content {
   background: rgba(0,0,0,0.85);
   padding: 45px;
   width: calc(100% - 90px);
-}
+}*/
 a {
   text-decoration: none;
-}*/
+}
