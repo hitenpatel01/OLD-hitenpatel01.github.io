@@ -1,5 +1,4 @@
-<h2 style="display: inline-block"><a href="/">[/Home]</a></h2>
-<h2 style="display: inline-block; margin-left: 10px"><a href="/posts">[/Posts]</a></h2>
+<h2 style="display: inline-block"><a href="/">[..]</a></h2>
 <h2 style="display: inline-block; margin-left: 10px"><a href="/projects">[/Projects]</a></h2>
 <ul>
   {% for post in site.posts %}
