@@ -11,7 +11,13 @@ body {
 }
 .container {
   background-color: rgba(0,0,0,0.8);
-  padding: 20px 40px;
+  width: unset;
+  max-width: unset;
+  margin: unset;
+  padding: 10px 20px;
+  @media screen and (min-width: 600px) {
+    padding: 20px 40px;
+  }
 }
 header {
   margin: 0;
