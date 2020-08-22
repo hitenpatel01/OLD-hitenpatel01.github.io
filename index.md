@@ -1,5 +1,5 @@
-<h2 style="display: inline-block">./Posts</h2>
-<h2 style="display: inline-block; margin-left: 10px">./Projects</h2>
+<a href="/posts"><h2 style="display: inline-block">./Posts</h2></a>
+<a href="/projects" style="margin-left: 10px"><h2 style="display: inline-block">./Projects</h2></a>
 <ul>
   {% for post in site.posts %}
     <li>
