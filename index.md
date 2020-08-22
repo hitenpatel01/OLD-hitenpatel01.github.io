@@ -7,7 +7,7 @@
       <small style="display: block; font-style: italic">
         ({{ post.tags | join: ", " }})
       </small>
-      <div style="margin-right: 50px; text-align: justify">{{ post.excerpt }}</div>
+      <div>{{ post.excerpt }}</div>
     </li>
   {% endfor %}
 </ul>
