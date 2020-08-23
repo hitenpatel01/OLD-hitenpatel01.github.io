@@ -12,7 +12,7 @@
     <p class="p-item">* Modularize cross cutting concerns (logging, caching, security, etc.) into their own classes</p>
   </li>
   <li>
-    <a href="https://mathpro.hitenpatel.net" target="_blank">My Money Manager</a>
+    <a href="https://m3.hitenpatel.net" target="_blank">My Money Manager</a>
     <small style="display: block; font-style: italic">
         (A hobby project built using angular, nodejs microservices, akka.net & hosted in AWS)
       </small>
