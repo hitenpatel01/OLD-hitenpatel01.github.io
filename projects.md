@@ -14,7 +14,7 @@
   <li>
     <a href="https://mathpro.hitenpatel.net" target="_blank">My Money Manager</a>
     <small style="display: block; font-style: italic">
-        (A hobby project built using angular, nodejs microservices, akka.net, etc. & hosted in AWS)
+        (A hobby project built using angular, nodejs microservices, akka.net & hosted in AWS)
       </small>
     <p class="p-item">* Browse stock data</p>
     <p class="p-item">* Build portfolio</p>
