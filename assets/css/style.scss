@@ -34,11 +34,9 @@ header h2 {
     margin: 0;
     padding: 0;
 }
-/*#main_content {
-  background: rgba(0,0,0,0.85);
-  padding: 45px;
-  width: calc(100% - 90px);
-}*/
+.p-item {
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
 a {
   text-decoration: none;
 }
