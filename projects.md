@@ -1,6 +1,6 @@
 <h2 style="display: inline-block"><a href="/">[..]</a></h2>
 <h2 style="display: inline-block"><a href="/posts">[../Posts]</a></h2>
-<h2 style="display: inline-block"><a href="/about">[../About Me]</a></h2>
+<h2 style="display: inline-block"><a href="/about">[../About]</a></h2>
 <ul>
   <li>
     <a href="https://github.com/hitenpatel01/DependencyInjection.Interception/blob/master/README.md" target="_blank">DI Interception</a>
